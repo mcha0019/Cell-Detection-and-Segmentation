@@ -70,7 +70,7 @@ Note: Dataset composition is similar but not identical between versions</sup></s
 ### Official Results
 
 ![image](https://user-images.githubusercontent.com/83149912/148864504-929cee59-f109-4647-8c7d-37c72e478cc4.png)
-At the time of submission, it was the second best method on the Fluo-C2DL-Huh7 and Fluo-N3DH-CHO datasets, and third on Fluo-C3DH-A549. It was also very close to the top 3 models in BF-C2DL-MuSC, Fluo-N2DH-GOWT1 and PhC-C2DH-U373. The method generalises well and yet is also competitive with other methods, many of which are highly tuned and trained for specific datasets.
+At the time of submission, it was the second best method on the Fluo-C2DL-Huh7 and Fluo-N3DH-CHO datasets, and third on Fluo-C3DH-A549. It was also very close to the top 3 models in BF-C2DL-MuSC, Fluo-N2DH-GOWT1 and PhC-C2DH-U373. The method (identical across all datasets) generalises well and yet is also competitive with other methods, many of which are highly tuned and trained for specific datasets.
 
 ### Improved version
 The updated version fixes a number of issues in the original submission, and uses an improved model specification. Contrast Limited Adaptive Histogram Equalisation (CLAHE) is added during preprocessing and augmentation to increase the microcontrast of images and to improve detection of low contrast cell instances.
@@ -88,13 +88,13 @@ Alternatively, use the .ipynb notebook on Google Colaboratory
 
 ## Project Poster
 
-<img src="https://user-images.githubusercontent.com/83149912/148884418-0a4d6e51-5c1b-4fd2-a64f-efa98c07a396.jpg" width="700" height="1000">
+<img src="https://user-images.githubusercontent.com/83149912/148884418-0a4d6e51-5c1b-4fd2-a64f-efa98c07a396.jpg" width="700" height="950">
 
 ### Acknowledgements and References
 
 I would like to thank Dr Zongyuan Ge and James Tong for their advice over the course of the project, and  Dr Martin Maška for his help with the challenge submission.
 
-Datasets and associated images courtesy of:
+Datasets and associated images courtesy of:\
 Maška, M., Ulman, V., Svoboda, D., Matula, P., Matula, P., Ederra, C., Urbiola, A., España, T., Venkatesan, S., Balak, D. M., Karas, P., Bolcková, T., Streitová, M., Carthel, C., Coraluppi, S., Harder, N., Rohr, K., Magnusson, K. E., Jaldén, J., Blau, H. M., … Ortiz-de-Solorzano, C. (2014). A benchmark for comparison of cell tracking algorithms. Bioinformatics (Oxford, England), 30(11), 1609–1617. https://doi.org/10.1093/bioinformatics/btu080
 
 Ulman, V., Maška, M., Magnusson, K. et al. (2017). An objective comparison of cell-tracking algorithms. Nature Methods 14, 1141–1152 https://doi.org/10.1038/nmeth.4473
