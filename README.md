@@ -38,7 +38,8 @@ http://celltrackingchallenge.net/participants/MON-AU/
 <sub><sup>Sample inferences on unseen challenge data</sup></sub>
 
 ## Method
-DeepLabV3 and Mask R-CNN networks were trained on 2D and 3D cell segmentation datasets, using silver truth masks for training and gold truth masks for validation. The Mask R-CNN network had better performance, and as it performs object detection and instance segmentation (detects and segments individual cells) compared to DeepLabV3's semantic segmentation (only classifies each pixel in an image as being part of a cell or not), it was the clear choice for the final method.
+DeepLabV3 and Mask R-CNN networks were trained on 2D and 3D cell segmentation datasets, using silver truth masks for training and gold truth masks for validation. 
+Each network took 2-3 weeks training time with an NVIDIA P100 GPU. The Mask R-CNN network had better performance, and as it performs object detection and instance segmentation (detects and segments individual cells) compared to DeepLabV3's semantic segmentation (only classifies each pixel in an image as being part of a cell or not), it was the clear choice for the final method.
 
 The final method can be broadly categorised into four main stages. In the first pre-processing stage, images are collated, converted and augmented. 
 In the second main stage, images are passed through the Mask R-CNN model, which runs inferences on the images and outputs predicted masks and bounding boxes.
@@ -103,4 +104,4 @@ Mask R-CNN:
 K. He, G. Gkioxari, P. Dollár and R. Girshick, “Mask R-CNN,” Proceedings of the IEEE International Conference on Computer Vision, 2017.
 
 DeepLab:
-L. Chen, G. Papandreou, I. Kokkinos, K. Murphy and A. Yuille, “DeepLab: Semantic Image Segmenetation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs,” IEEE Transactions on Pattern Analysis and Machine Intelligence, 2018.
+L. Chen, G. Papandreou, I. Kokkinos, K. Murphy and A. Yuille, “DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs,” IEEE Transactions on Pattern Analysis and Machine Intelligence, 2018.
