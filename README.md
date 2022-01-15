@@ -1,7 +1,7 @@
 # Cell-Detection-and-Segmentation
 This entry to the ISBI 2021 Cell Tracking Challenge was my undergraduate engineering final year project at Monash University (Melbourne, Australia). The core of the developed method is a custom Mask R-CNN neural network that performs cell detections and instance segmentation. The method is small and performance friendly, and is also less complex compared to many others, and performs well across 14 of the 20 datasets. 
 
-At the time of submission (Sep 2021), the method ranked 2nd highest in the cell segmentation benchmark in 2 datasets and 3rd in another. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022)
+At the time of submission (Sep 2021), the method ranked 2nd highest in 2 datasets and 3rd in another in the cell segmentation benchmark. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022)
 
 Version 1:
 
@@ -22,7 +22,7 @@ In this year's edition of the ISBI challenge,
 
 >“The primary focus is put on methods that exhibit better generalizability and work across most, if not all, of the already existing datasets, instead of developing methods optimized for one or a few datasets only.”
 
-In keeping with this focus on generalisability, the aim of this project was to develop a method that performs well across the range of datasets and microscope imaging modalities. Additionally, in my submission, an identical method was used on all datasets with no dataset specific tuning, meaning the challenge results give an accurate depiction of the capability of the method across datasets. 
+In keeping with this focus on generalisability, the aim of this project was to develop a method that performs well across the range of datasets and microscope imaging modalities. Additionally, in my submission, an identical method was used on all datasets with no dataset specific tuning, meaning the challenge results give an accurate depiction of the capability of the method across many datasets. 
 
 Recent submissions to the challenge have been dominated by the older U-Net architecture (2015) developed specifically for biomedical imaging applications. Instead of developing another U-Net based method, state-the-art Mask R-CNN and DeepLab architectures were used in this project to investigate their potential.
 
