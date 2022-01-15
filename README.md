@@ -3,6 +3,10 @@ This entry to the ISBI 2021 Cell Tracking Challenge was my undergraduate enginee
 
 At the time of submission (Sep 2021), the method ranked 2nd highest in the cell segmentation benchmark in 2 datasets and 3rd in another. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022)
 
+Version 1:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcha0019/Cell-Detection-and-Segmentation/blob/main/run_inference.ipynb)
+
 ## Background
 Since 2012, the Cell Tracking Challenge has been part of the yearly International Symposium of Biomedical Imaging (ISBI), held by the Institute of Electrical and Electronic Engineers (IEEE).  In the challenge, state-of-the-art cell segmentation and tracking methods are tested and compared on 2D and 3D time-lapse microscopy footage from 20 unique datasets with cells of diverse shapes and sizes, captured using various imaging modalities. This data also consists of both real and computer generated simulations.
 
@@ -79,13 +83,6 @@ The updated version fixes a number of issues in the original submission, and use
 <img src="https://user-images.githubusercontent.com/83149912/148887161-ba5793ba-b071-4518-923a-5f86066a5786.png" width="500" height="250">
 
 <sub><sup>Before and after CLAHE is applied</sup></sub>
-
-### Documentation
-
-Installation:
-Clone repo and install requirements.txt in a Python 3 environment.
-
-Alternatively, use the .ipynb notebook on Google Colaboratory
 
 ## Project Poster
 
