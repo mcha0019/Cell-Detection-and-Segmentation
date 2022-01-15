@@ -35,7 +35,7 @@ def run(image_folder='sample_images',
         show_vis=True,
         save_vis=True,
         padding=0,
-        FOI=0,
+        FoI=0,
         ):
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -94,7 +94,7 @@ def run(image_folder='sample_images',
         return masks
 
     # Run inference functions
-    def get_prediction(img, img_shape, confidence, FOI, padding):
+    def get_prediction(img, img_shape, confidence, FoI, padding):
 
         img = img.to(device)
         pred = model([img])
@@ -122,14 +122,14 @@ def run(image_folder='sample_images',
         if padding > 0:
             i = 1
             for mask in masks:
-                if np.any(mask[FOI+padding:-(FOI+padding),FOI+padding:-(FOI+padding)]):
+                if np.any(mask[FoI+padding:-(FoI+padding),FoI+padding:-(FoI+padding)]):
                     img_mask = mask[padding:-padding,padding:-padding]
                     output_mask[np.where(img_mask>0)] = i
                     i = i+1
-        elif FOI > 0:
+        elif FoI > 0:
             i = 1
             for mask in masks:
-                if np.any(mask[FOI:-FOI,FOI:-FOI]):
+                if np.any(mask[FoI:-FoI,FoI:-FoI]):
                     img_mask = mask
                     output_mask[np.where(img_mask>0)] = i
                     i = i+1
@@ -142,7 +142,7 @@ def run(image_folder='sample_images',
                     i = i+1
         return output_mask, pred_boxes, pred_class, False
 
-    def save_predictions(folder,FOI,padding):
+    def save_predictions(folder,FoI,padding):
         try: 
             os.mkdir(os.path.join(cwd,folder,"_RESULT")) 
         except OSError as error:
@@ -168,7 +168,7 @@ def run(image_folder='sample_images',
                 transforms.ToTensor(),
                 ])
             image = stdTransform(image)
-            output_mask, pred_boxes, pred_class, empty = get_prediction(image, img_shape, confidence=0.5, FOI=FOI, padding=padding)
+            output_mask, pred_boxes, pred_class, empty = get_prediction(image, img_shape, confidence=0.5, FoI=FoI, padding=padding)
             if show_vis or save_vis:
                 img = segment_instance(input_img, output_mask, pred_boxes, pred_class, empty)
             head, tail = os.path.split(i)
@@ -230,7 +230,7 @@ def run(image_folder='sample_images',
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model = model.to(device)
 
-    save_predictions(folder=image_folder,FOI=FOI,padding=padding)
+    save_predictions(folder=image_folder,FoI=FoI,padding=padding)
 
 def parse_opt():
     parser = argparse.ArgumentParser()
@@ -240,7 +240,7 @@ def parse_opt():
     parser.add_argument('--show_vis', dest='show_vis', default=True, action='store_true',help='show visualisation')
     parser.add_argument('--save_vis', dest='save_vis', default=True, action='store_true',help='save image masks with visualisation (bounding boxes and/or coloured masks)')
     parser.add_argument('--padding', default=0, type=int, help='zero padding amount, 10-15 helps with edge detection in some cases, default 0')
-    parser.add_argument('--FOI', default=0, type=int, help='Field of Interest specification, In order to better tackle objects entering the field of view, a frame definition domain was virtually eroded in the lateral axes (x and y) by a constant number of pixels (voxels) E depending on a dataset,  default 0')
+    parser.add_argument('--FoI', default=0, type=int, help='Field of Interest specification, In order to better tackle objects entering the field of view, a frame definition domain was virtually eroded in the lateral axes (x and y) by a constant number of pixels (voxels) E depending on a dataset,  default 0')
     opt = parser.parse_args()
     return opt
 
