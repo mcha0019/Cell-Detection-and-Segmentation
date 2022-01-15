@@ -92,7 +92,15 @@ def run(image_folder='sample_images',
                         break
         masks[~(masks==0).all((2,1))]
         return masks
-
+    
+    def convert(img, target_type_min, target_type_max, target_type):
+        imin = img.min()
+        imax = img.max()
+        a = (target_type_max - target_type_min) / (imax - imin)
+        b = target_type_max - a * imax
+        new_img = (a * img + b).astype(target_type)
+    return new_img
+    
     # Run inference functions
     def get_prediction(img, img_shape, confidence, FoI, padding):
 
@@ -151,6 +159,8 @@ def run(image_folder='sample_images',
         for i in paths:
             print("Running image: "+i)
             image = io.imread(i)
+            if image.dtype == "uint16":
+                image = convert(image, 0, 255, np.uint8)
             input_img = image
             image = np.asarray(image)
             clahe = cv2.createCLAHE(clipLimit =2, tileGridSize=(8,8))
