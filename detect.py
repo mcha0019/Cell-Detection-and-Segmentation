@@ -47,10 +47,9 @@ def run(image_folder='sample_images',
         in_features = model.roi_heads.box_predictor.cls_score.in_features
         # replace the pre-trained head with a new one
         model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
-      
         in_features_mask = model.roi_heads.mask_predictor.conv5_mask.in_channels
         hidden_layer = 256
-        # and replace the mask predictor with a new one
+        # replace the mask predictor with a new one
         model.roi_heads.mask_predictor = MaskRCNNPredictor(in_features_mask, hidden_layer, num_classes)
         return model
 
@@ -161,8 +160,8 @@ def run(image_folder='sample_images',
             image = io.imread(i)
             if image.dtype == "uint16":
                 image = convert(image, 0, 255, np.uint8)
-            input_img = image
             image = np.asarray(image)
+            input_img = Image.fromarray(image)
             clahe = cv2.createCLAHE(clipLimit =2, tileGridSize=(8,8))
             cl_img = clahe.apply(image)
             image = Image.fromarray(image)
@@ -178,6 +177,10 @@ def run(image_folder='sample_images',
                 transforms.ToTensor(),
                 ])
             image = stdTransform(image)
+            stdTransform2 = transforms.Compose([
+            transforms.ToTensor(),
+            ])
+            input_img = stdTransform2(input_img)
             output_mask, pred_boxes, pred_class, empty = get_prediction(image, img_shape, confidence=0.5, FoI=FoI, padding=padding)
             if show_vis or save_vis:
                 img = segment_instance(input_img, output_mask, pred_boxes, pred_class, empty)
