@@ -4,3 +4,4 @@ scikit_learn==1.0
 imagecodecs==2020.5.30
 scikit_image==0.18.3
 opencv_python==4.1.2.30
+imgaug==0.2.5
