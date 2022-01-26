@@ -20,6 +20,7 @@ import math
 import PIL
 from PIL import Image
 import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
 import time
 import multiprocessing
 from tifffile import imsave
@@ -29,6 +30,9 @@ import cv2
 
 # Data
 import glob   #Unix style pathname pattern expansion, used to generate list of pathnames of images
+
+import warnings     #Suppress deprecated warnings when using Colab
+warnings.filterwarnings("ignore")
 
 def run(image_folder='sample_images',
         show_bbox=True,
@@ -234,7 +238,7 @@ def run(image_folder='sample_images',
         return img2
 
     # Load model and run images
-    save_name = r"MaskRCNN_v1"
+    save_name = r"MaskRCNN_v2"
     cwd = os.getcwd()
 
     Save_Path = os.path.join(cwd, save_name + ".pt")
