@@ -7,6 +7,10 @@ Version 1:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcha0019/Cell-Detection-and-Segmentation/blob/main/run_inference.ipynb)
 
+Model link (Google Drive):
+
+https://drive.google.com/file/d/1os_AYOxQXdz4g8zqNaIVz8SRCw_V2UGq/view
+
 ## Background
 Since 2012, the Cell Tracking Challenge has been part of the yearly International Symposium of Biomedical Imaging (ISBI), held by the Institute of Electrical and Electronic Engineers (IEEE).  In the challenge, state-of-the-art cell segmentation and tracking methods are tested and compared on 2D and 3D time-lapse microscopy footage from 20 unique datasets with cells of diverse shapes and sizes, captured using various imaging modalities. This data also consists of both real and computer generated simulations.
 
