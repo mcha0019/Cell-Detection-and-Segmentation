@@ -73,8 +73,7 @@ A final visualisation stage annotates the original images with bounding boxes an
 | Average Recall | [ IoU=0.50:0.95 \| area = medium ]	| 0.765 | 0.739 |
 | Average Recall | [ IoU=0.50:0.95 \| area = large ]	| 0.727 | 0.684 |
 
-<sub><sup>These metrics are the same as those used for ev![148884418-0a4d6e51-5c1b-4fd2-a64f-efa98c07a396](https://user-images.githubusercontent.com/83149912/151104566-dfae064d-47e0-44ae-8c08-f75474a495b8.jpg)
-aluation in the [Common Objects in Context](https://cocodataset.org/) (COCO) challenge.\
+<sub><sup>These metrics are the same as those used for evaluation in the [Common Objects in Context](https://cocodataset.org/) (COCO) challenge.\
 Note: Dataset composition is similar but not identical between versions</sup></sub>
 
 ### Official Results
@@ -90,7 +89,7 @@ The updated version fixes a number of issues in the original submission, and use
 
 ## Project Poster
 
-<img src="https://user-images.githubusercontent.com/83149912/148864504-929cee59-f109-4647-8c7d-37c72e478cc4.png" width="700" height="950">
+<img src="https://user-images.githubusercontent.com/83149912/151104617-7d79662b-06ee-4344-a42f-b8f4002df18c.jpg" width="700" height="950">
 
 ### Acknowledgements and References
 
