@@ -42,7 +42,7 @@ def run(image_folder='sample_images',
     print("Device: ",device)
 
     def createMaskRCNN(num_classes=2):
-        model = models.detection.maskrcnn_resnet50_fpn(pretrained=False)
+        model = models.detection.maskrcnn_resnet50_fpn(pretrained=True)
         # get number of input features for the classifier
         in_features = model.roi_heads.box_predictor.cls_score.in_features
         # replace the pre-trained head with a new one
@@ -98,7 +98,8 @@ def run(image_folder='sample_images',
         a = (target_type_max - target_type_min) / (imax - imin)
         b = target_type_max - a * imax
         new_img = (a * img + b).astype(target_type)
-    return new_img
+        
+        return new_img
     
     # Run inference functions
     def get_prediction(img, img_shape, confidence, FoI, padding):
@@ -240,7 +241,6 @@ def run(image_folder='sample_images',
 
     # set to evaluation mode
     model.eval()
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     model = model.to(device)
 
     save_predictions(folder=image_folder,FoI=FoI,padding=padding)
