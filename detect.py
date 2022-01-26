@@ -19,6 +19,7 @@ import numpy as np
 import math
 import PIL
 from PIL import Image
+import matplotlib.pyplot as plt
 import time
 import multiprocessing
 from tifffile import imsave
@@ -98,7 +99,6 @@ def run(image_folder='sample_images',
         a = (target_type_max - target_type_min) / (imax - imin)
         b = target_type_max - a * imax
         new_img = (a * img + b).astype(target_type)
-        
         return new_img
     
     # Run inference functions
@@ -116,8 +116,9 @@ def run(image_folder='sample_images',
         pred_boxes = [[(i[0], i[1]), (i[2], i[3])] for i in list(pred[0]['boxes'].detach().cpu().numpy())]
         output_mask = np.zeros(img_shape, dtype=np.uint16)
         # print(pred[0]['labels'].numpy().max())
+        pred_class = [CLASS_NAMES[i] for i in list(pred[0]['labels'].cpu().numpy())]
         if masks.size == 0:
-            return output_mask,_,_,True
+            return output_mask,masks,_,_,True
         elif isinstance(pred_t, int) == False:
             pred_t = 0
         masks = masks[:pred_t+1]
@@ -148,11 +149,11 @@ def run(image_folder='sample_images',
                     img_mask = mask
                     output_mask[np.where(img_mask>0)] = i
                     i = i+1
-        return output_mask, pred_boxes, pred_class, False
+        return output_mask, masks, pred_boxes, pred_class, False
 
     def save_predictions(folder,FoI,padding):
         try: 
-            os.mkdir(os.path.join(cwd,folder,"_RESULT")) 
+            os.mkdir(os.path.join(cwd,folder+"_RESULT")) 
         except OSError as error:
             pass
         paths = glob.glob(os.path.join(cwd,folder,"*.*"))
@@ -167,6 +168,8 @@ def run(image_folder='sample_images',
             cl_img = clahe.apply(image)
             image = Image.fromarray(image)
             img_shape = (image.height,image.width)
+            
+            image = image.convert('RGB')
 
             if padding > 0:
                 stdTransform = transforms.Compose([
@@ -182,11 +185,11 @@ def run(image_folder='sample_images',
             transforms.ToTensor(),
             ])
             input_img = stdTransform2(input_img)
-            output_mask, pred_boxes, pred_class, empty = get_prediction(image, img_shape, confidence=0.5, FoI=FoI, padding=padding)
+            output_mask, masks, pred_boxes, pred_class, empty = get_prediction(image, img_shape, confidence=0.5, FoI=FoI, padding=padding)
             if show_vis or save_vis:
-                img = segment_instance(input_img, output_mask, pred_boxes, pred_class, empty)
+                img = segment_instance(input_img, masks, pred_boxes, pred_class, empty)
             head, tail = os.path.split(i)
-            name = os.path.join(head.replace(folder,folder+"_RESULT"),tail+"_mask")
+            name = os.path.join(head.replace(folder,folder+"_RESULT"),tail)
             if save_vis:
                 imsave(name,img)
             else:
@@ -215,7 +218,7 @@ def run(image_folder='sample_images',
                     rgb_mask = get_coloured_mask(masks[i])
                     img2 = cv2.addWeighted(img2, 1, rgb_mask, 0.5, 0)
                 if show_bbox:
-                    cv2.rectangle(img2, boxes[i][0], boxes[i][1],color=(0, 153, 0), thickness=rect_th)
+                    cv2.rectangle(img2, boxes[i][0], boxes[i][1],color=(0, 153, 0), thickness=2)
                 #cv2.putText(img2,pred_cls[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, (0,255,0),thickness=text_th)
         if show_vis:
             plt.figure(figsize=(20,10))
@@ -242,7 +245,7 @@ def run(image_folder='sample_images',
     # set to evaluation mode
     model.eval()
     model = model.to(device)
-
+    CLASS_NAMES = ['__background__', 'cell']
     save_predictions(folder=image_folder,FoI=FoI,padding=padding)
 
 def parse_opt():
