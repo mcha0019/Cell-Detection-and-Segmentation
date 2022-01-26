@@ -1,7 +1,7 @@
 # Cell-Detection-and-Segmentation
 This entry to the ISBI 2021 Cell Tracking Challenge was my undergraduate engineering final year project at Monash University (Melbourne, Australia). The core of the developed method is a custom Mask R-CNN neural network that performs cell detections and instance segmentation. The method is small and performance friendly, and is also less complex compared to many others, and performs well across 14 of the 20 datasets. 
 
-At the time of submission (Sep 2021), the method ranked 2nd highest in 2 datasets and 3rd in another in the cell segmentation benchmark. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022)
+At the time of submission (Oct 2021), the method ranked 2nd highest in 2 datasets and 3rd in another in the cell segmentation benchmark. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022)
 
 Version 1:
 
@@ -56,7 +56,7 @@ A final visualisation stage annotates the original images with bounding boxes an
 
 ### Validation Segmentation Metrics
 
-| Metric | | Ver 1, Sep 2021 | Ver 2, Jan 2022 |
+| Metric | | Ver 1, Oct 2021 | Ver 2, Jan 2022 |
 | ------------- | ------------- |------------- | ------------- |
 | Average Precision	| [ IoU=0.50:0.95 \| area = all ]	| 0.539 | 0.640 |
 | Average Precision	| [ IoU=0.50 \| area = all ] | 0.769 | 0.916 |
@@ -90,7 +90,7 @@ The updated version fixes a number of issues in the original submission, and use
 
 ### Acknowledgements and References
 
-I would like to thank Dr Zongyuan Ge and James Tong for their advice over the course of the project, and  Dr Martin Maška for his help with the challenge submission.
+I would like to thank Dr Zongyuan Ge and for his advice over the course of the project, and Dr Martin Maška for his help with the challenge submission.
 
 Datasets and associated images courtesy of:\
 Maška, M., Ulman, V., Svoboda, D., Matula, P., Matula, P., Ederra, C., Urbiola, A., España, T., Venkatesan, S., Balak, D. M., Karas, P., Bolcková, T., Streitová, M., Carthel, C., Coraluppi, S., Harder, N., Rohr, K., Magnusson, K. E., Jaldén, J., Blau, H. M., … Ortiz-de-Solorzano, C. (2014). A benchmark for comparison of cell tracking algorithms. Bioinformatics (Oxford, England), 30(11), 1609–1617. https://doi.org/10.1093/bioinformatics/btu080
