@@ -95,7 +95,7 @@ The updated version fixes a number of issues in the original submission, and use
 
 ### Acknowledgements and References
 
-I would like to thank Dr Zongyuan Ge and for his advice over the course of the project, and Dr Martin Maška for his help with the challenge submission.
+I would like to thank Dr Zongyuan Ge for his advice over the course of the project, and Dr Martin Maška for his help with the challenge submission.
 
 Datasets and associated images courtesy of:\
 Maška, M., Ulman, V., Svoboda, D., Matula, P., Matula, P., Ederra, C., Urbiola, A., España, T., Venkatesan, S., Balak, D. M., Karas, P., Bolcková, T., Streitová, M., Carthel, C., Coraluppi, S., Harder, N., Rohr, K., Magnusson, K. E., Jaldén, J., Blau, H. M., … Ortiz-de-Solorzano, C. (2014). A benchmark for comparison of cell tracking algorithms. Bioinformatics (Oxford, England), 30(11), 1609–1617. https://doi.org/10.1093/bioinformatics/btu080
