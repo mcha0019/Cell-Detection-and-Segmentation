@@ -1,7 +1,7 @@
 # Cell-Detection-and-Segmentation
 This entry to the ISBI 2021 Cell Tracking Challenge was my undergraduate engineering final year project at Monash University (Melbourne, Australia). The core of the developed method is a custom Mask R-CNN neural network that performs cell detections and instance segmentation. The method is small and performance friendly, and is also less complex compared to many others, and performs well across 14 of the 20 datasets. 
 
-At the time of submission (Oct 2021), the method ranked 2nd highest in 2 datasets and 3rd in another in the cell segmentation benchmark. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022)
+At the time of submission (Oct 2021), the method ranked 2nd highest in 2 datasets and 3rd in another in the cell segmentation benchmark. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022), which improved the ranking on the Fluo-N3DH-CHO dataset to 1st.
 
 Version 1:
 
@@ -77,10 +77,11 @@ A final visualisation stage annotates the original images with bounding boxes an
 Note: Dataset composition is similar but not identical between versions</sup></sub>
 
 ### Official Results
-
-![image](https://user-images.githubusercontent.com/83149912/148864504-929cee59-f109-4647-8c7d-37c72e478cc4.png)
+![image](https://user-images.githubusercontent.com/83149912/154800891-fb4df25a-5ebc-4fc1-a476-66866007757b.png)
 
 At the time of submission, it was the second best method on the Fluo-C2DL-Huh7 and Fluo-N3DH-CHO datasets, and third on Fluo-C3DH-A549. It was also very close to the top 3 models in BF-C2DL-MuSC, Fluo-N2DH-GOWT1 and PhC-C2DH-U373. The method (identical across all datasets) generalises well and yet is also competitive with other methods, many of which are highly tuned and trained for specific datasets.
+
+The updated version of the model improved the ranking on the Fluo-N3DH-CHO dataset from 2nd to 1st.
 
 ### Improved version
 The updated version fixes a number of issues in the original submission, and uses an improved model specification. Contrast Limited Adaptive Histogram Equalisation (CLAHE) is added during preprocessing and augmentation to increase the microcontrast of images and to improve detection of low contrast cell instances.
