@@ -81,7 +81,7 @@ Note: Dataset composition is similar but not identical between versions</sup></s
 
 At the time of submission, it was the second best method on the Fluo-C2DL-Huh7 and Fluo-N3DH-CHO datasets, and third on Fluo-C3DH-A549. It was also very close to the top 3 models in BF-C2DL-MuSC, Fluo-N2DH-GOWT1 and PhC-C2DH-U373. The method (identical across all datasets) generalises well and yet is also competitive with other methods, many of which are highly tuned and trained for specific datasets.
 
-The updated version of the model improved the ranking on the Fluo-N3DH-CHO dataset from 2nd to 1st.
+The updated version of the model improved the ranking on the Fluo-N3DH-CHO dataset from second to first.
 
 ### Improved version
 The updated version fixes a number of issues in the original submission, and uses an improved model specification. Contrast Limited Adaptive Histogram Equalisation (CLAHE) is added during preprocessing and augmentation to increase the microcontrast of images and to improve detection of low contrast cell instances.
