@@ -222,7 +222,7 @@ def run(image_folder='sample_images',
                     rgb_mask = get_coloured_mask(masks[i])
                     img2 = cv2.addWeighted(img2, 1, rgb_mask, 0.5, 0)
                 if show_bbox:
-                    cv2.rectangle(img2, boxes[i][0], boxes[i][1],color=(0, 153, 0), thickness=2)
+                  cv2.rectangle(img2,tuple([(int(element)) for element in boxes[i][0]]),tuple([(int(element)) for element in boxes[i][1]]) ,color=(0, 153, 0), thickness=2)
                 #cv2.putText(img2,pred_cls[i], boxes[i][0], cv2.FONT_HERSHEY_SIMPLEX, text_size, (0,255,0),thickness=text_th)
         if show_vis:
             plt.figure(figsize=(20,10))
@@ -245,6 +245,9 @@ def run(image_folder='sample_images',
     if os.path.isfile(Save_Path):
         check_point = torch.load(Save_Path, map_location=device)
         model.load_state_dict(check_point['model_state_dict'])
+    else: 
+        raise Exception("Failed to Load Trained Model, Please add to root directory, (Model is too large to upload directly to github)")
+
 
     # set to evaluation mode
     model.eval()
