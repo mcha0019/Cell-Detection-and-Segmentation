@@ -7,7 +7,7 @@ Version 1:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcha0019/Cell-Detection-and-Segmentation/blob/main/run_inference.ipynb)
 
-When running on Google Colab, please add the model below to the root directory (accessible by the files tab on the left) as it is too large (128MB) to be uploaded to github.
+When running on Google Colab, please add the model below to the root directory (with Cell-Detection-and-Segmentation/detect.py) which is accessible by the files tab on the left as it is too large to be uploaded to github.
 
 Model links (Google Drive):
 
