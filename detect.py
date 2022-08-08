@@ -241,12 +241,13 @@ def run(image_folder='sample_images',
     save_name = r"MaskRCNN_v2"
     cwd = os.getcwd()
 
-    Save_Path = os.path.join(cwd, save_name + ".pt")
+    Save_Path = os.path.join(cwd, "Cell-Detection-and-Segmentation",save_name + ".pt")
+    print("Loading model at: ", Save_Path)
     if os.path.isfile(Save_Path):
         check_point = torch.load(Save_Path, map_location=device)
         model.load_state_dict(check_point['model_state_dict'])
     else: 
-        raise Exception("Failed to Load Trained Model, Please add to root directory, (Model is too large to upload directly to github)")
+        raise Exception("Failed to Load Trained Model, Please add to root directory")
 
 
     # set to evaluation mode
