@@ -241,7 +241,7 @@ def run(image_folder='sample_images',
     save_name = r"MaskRCNN_v2"
     cwd = os.getcwd()
 
-    Save_Path = os.path.join(cwd, "Cell-Detection-and-Segmentation",save_name + ".pt")
+    Save_Path = os.path.join(cwd,save_name + ".pt")
     print("Loading model at: ", Save_Path)
     if os.path.isfile(Save_Path):
         check_point = torch.load(Save_Path, map_location=device)
