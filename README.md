@@ -3,11 +3,13 @@ This entry to the ISBI 2021 Cell Tracking Challenge was my undergraduate enginee
 
 At the time of submission (Oct 2021), the method ranked 2nd highest in 2 datasets and 3rd in another in the cell segmentation benchmark. Lessons learnt from this initial entry have been applied in an updated version (Jan 2022), which improved the ranking on the Fluo-N3DH-CHO dataset to 1st.
 
-Version 1:
+Version 1 complete model:
+
+https://drive.google.com/drive/folders/1sJI9JqGCnPmgtvl2Ug08IRDR2TMEQjTk?usp=sharing
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcha0019/Cell-Detection-and-Segmentation/blob/main/run_inference.ipynb)
 
-As the model is too large to be uploaded directly to github, please add it to the root directory of google colab (along with detect.py)
+If using the Google Colab link, please add the model below to the root directory (accessible by the files tab on the left) as it is too large (128MB) to be uploaded to github.
 
 Model link (Google Drive):
 
